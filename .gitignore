@@ -3,6 +3,16 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+/images/*
+!/images/.gitkeep
+
+/data/*
+!/data/.gitkeep
+
+/models/*
+!/models/.gitkeep
+
+
 # C extensions
 *.so
 
