@@ -14,24 +14,49 @@ Detect users' facial expressions in real-time using a webcam and **dynamically o
 
 **Examples**:
 - 😊 **Smile** → Displays a smiling emoji.
-- 😂 **Laughter** → Shows a laughing emoji.
-- 🥱 **Yawn** → Triggers a sleepy emoji.
+- 😭 **Sad** → Displays a crying emoji.
 - 😐 **Neutral** → Default neutral face.
+
+
+## 📸 Demonstration: 
+
+### Before vs. After
+
+<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; align-items: center; margin: 2rem 0">
+    <div style="position: relative;">
+        <h3>In</h3>
+        <img src="./example_images/photo.png" alt="Photo originale" width="300" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+    </div>
+    <svg height="40" width="60" style="margin: 0 20px">
+      <path d="M10 20 L40 20 L30 10 M40 20 L30 30" stroke="#f8f9fa" stroke-width="2" fill="none"/>
+      </svg>
+    <div style="position: relative;">
+        <h3>Out</h3>
+        <img src="./example_images/result1.png" alt="Résultat avec emoji" width="300" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+    </div>
+</div>
+
+*Processing example: Facial detection with emoji overlay* 🎭
+
+### With webcam and sentiment analysis
+
+<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; align-items: center; margin: 2rem 0">
+    <div style="position: relative;">
+        <h3>Out</h3>
+        <img src="./example_images/result2.png" alt="Résultat avec emoji" width="300" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+    </div>
+</div>
+
+*Processing example: Facial detection with emoji overlay* 🎭
+
+
+
 
 **Key Objectives**:
 1. **Real-Time Expression Detection**: Classify facial expressions (smile, laugh, neutral) using machine learning.
 2. **Dynamic Emoji Switching**: Instantly update emojis based on detected emotions.
 3. **Edge-Case Handling**: Smooth emoji placement even near screen borders.
 4. **Sentiment Analysis**: Predict emotions from static images as an auxiliary feature.
-
----
-
-## Features
-
-- **Real-Time Face Detection**: Identify faces in live webcam feeds using MediaPipe.
-- **Dynamic Emoji Overlay**: Replace detected faces with custom emojis (with transparency support).
-- **Sentiment Analysis**: Predict emotions (e.g., positive/negative) from static images using a pre-trained CNN model.
-- **Bounding Box Adjustments**: Handle edge cases where faces are near the screen borders.
 
 ## Installation
 
@@ -41,7 +66,7 @@ Detect users' facial expressions in real-time using a webcam and **dynamically o
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/your-username/Emoji-Face-Detection.git
+   git clone https://github.com/germain-d/Emoji-Face-Detection.git
    cd Emoji-Face-Detection
    ```
 
@@ -62,34 +87,11 @@ Detect users' facial expressions in real-time using a webcam and **dynamically o
 ### Real-Time Face Detection with Emoji Overlay
 Run the script and specify an emoji image (PNG with transparency):
 ```bash
-python detect_emoji.py --model ./models/happy.png
+python main.py
 ```
 - Press `q` to quit the live feed.
 - Adjust emoji size dynamically based on face detection bounding boxes.
 
-### Sentiment Analysis on Images
-Use the pre-trained CNN model to analyze sentiment in a static image:
-```python
-python sentiment_predict.py --image ./images/photo.jpg
-```
-**Output Example**:
-```
-Sentiment: Positive | Confidence: 93.45%
-```
-
-## Model Training
-The CNN model for sentiment analysis is pre-trained and stored in `./models/`. To retrain it:
-1. Place your dataset in `./data/` (structured into train/validation folders).
-2. Run the training script:
-   ```bash
-   python train_model.py --epochs 20 --batch_size 32
-   ```
-3. Trained models will be saved to `./models/`.
-
-## Examples
-| Real-Time Emoji Overlay | Sentiment Prediction | 
-|-------------------------|----------------------|
-| ![Demo](demo.gif)       | ![Result](result.png)|
 
 ## Troubleshooting
 - **Shape Mismatch Errors**: Ensure the input image dimensions match `model.input_shape` (check with `print(model.input_shape)`).
@@ -108,4 +110,6 @@ Pull requests are welcome! For major changes, open an issue first to discuss you
 - [MediaPipe Face Detection](https://google.github.io/mediapipe/solutions/face_detection)
 - [OpenCV Documentation](https://docs.opencv.org/4.x/)
 - [Keras Model Saving Guide](https://keras.io/guides/saving_model/)
-``` 
+- [FER-2013 Dataset](https://www.kaggle.com/datasets/msambare/fer2013)
+- [Sentiment Analysis Notebook](https://www.kaggle.com/code/veronicacarvalho/sentiment-analysis)
+- [Emojis](https://emoji.aranja.com/)
