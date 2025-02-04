@@ -1,0 +1,8 @@
+questionary
+opencv-python
+mediapipe
+tensorflow
+keras
+matplotlib
+scikit-learn
+seaborn
